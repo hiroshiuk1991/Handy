@@ -1,8 +1,12 @@
 <h3><%= @user.full_name %></h3>
 <br>
 <br>
-<h3><%= link_to "My Recipes", recipe_path %><h3>
+<h3><%= link_to "My Recipes", recipe_path %></h3>
 <br>
-<h3><%= link_to "Got a New Recipe? Lets Add it!" %><h3>
-
-
+<h3><%= link_to "Got a New Recipe? Lets Add it!" %></h3>
+<br>
+<h3><%= link_to "Edit Profile", edit_user_path %></h3>
+<br>
+<%= form_tag user_path(@user.id), method: "delete" do %>
+  <%= submit_tag "Delete #{@user.full_name}" %>
+<% end %>
