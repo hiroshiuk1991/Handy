@@ -1,0 +1,17 @@
+<h1>Lets Create a Recipe!</h1>
+
+<%= form_for @recipe do |r| %>
+
+  <%= r.label :dish_name %><br>
+  <%= r.text_field :dish_name %>
+<br>
+
+<%= collection_select(:ingredient, :ingredient_id, Ingredient.all, :id, :prompt => "Select an ingredient?") %> 
+
+<br>
+
+   <%= u.submit %> 
+
+<% end %> 
+
+
