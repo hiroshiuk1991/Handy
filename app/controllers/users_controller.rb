@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    # before_action :authorize_user, only: [:edit, :update, :destroy]
+
     def index
         @user = User.all 
     end 
