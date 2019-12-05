@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2019_12_04_160817) do
     t.integer "user_id"
     t.string "description"
     t.string "instructions"
+    t.string "dish_ingredients"
   end
 
   create_table "users", force: :cascade do |t|

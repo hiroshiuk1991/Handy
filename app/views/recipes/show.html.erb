@@ -1,5 +1,8 @@
-<h2><%= @recipes.each do |i| %></h2>
-<p><%= i. %></p>
- 
-
- <% end  %>
+<h3><%= @recipe.dish_name %><br>
+  <ul>
+    <% @ingr.each do |i| %>
+      <li><%= i %>
+      <% end %></ul>
+    <%= form_tag recipe_path(@recipe.id), method: "delete" do %>
+      <%= submit_tag "Delete #{@recipe.dish_name}" %>
+    <% end %>
