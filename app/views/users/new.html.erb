@@ -1,21 +1,34 @@
 <h1> Create a Cook!!</h1>
+
+
+<form>
+  <div class="form-group">
+
+
 <%= form_for @user do |u| %>
   <%= u.label :first_name %>
-  <%= u.text_field :first_name %>
-  <br>
+
+  <%= u.text_field :first_name %><br>
+  
   <%= u.label :last_name %>
-  <%= u.text_field :last_name %>
-  <br>
+  <%= u.text_field :last_name %><br>
+
   <%= u.label :username %>
-  <%= u.text_field :username %>
-  <br>
+  <%= u.text_field :username %> <br>
+
   <%= u.label :email %>
-  <%= u.text_field :email %>
-  <br>
+  <%= u.text_field :email %> <br>
+
   <%= u.label :password %>
-  <%= u.password_field :password %>
-  <br>
-  <%= u.label "Confirm Password" %>
-  <%= u.password_field :password_confirmation %>
-  <%= u.submit %>
+  <%= u.text_field :password_digest %> <br>
+
+<div class="checkbox">
+    <label><input type="checkbox"> Remember me</label>
+  </div>
+
+   <%= u.submit %> 
+
 <% end %>
+</div> 
+
+
