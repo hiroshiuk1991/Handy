@@ -1,5 +1,11 @@
+
+<div class="jumbotron text-center">
 <h2> Welcome <%= @user.full_name %> </h2>
 <br>
+
+<div class="container text-center">
+
+
 <% if @user.my_recipes.empty? %>
   <p> Please Create a Recipe. <%= link_to "Create New Recipe", new_recipe_path %>
   <% else %>
@@ -21,3 +27,19 @@
   <%= form_tag user_path(@user.id), method: "delete" do %>
     <%= submit_tag "Delete #{@user.full_name}" %>
   <% end %>
+
+</ul>
+<% end %>
+
+<br>
+<h3><%= link_to "My Recipes", recipe_path %></h3>
+<br>
+<h3><%= link_to "Got a New Recipe? Lets Add it!", new_recipe_path %></h3>
+<br>
+<h3><%= link_to "Edit Profile", edit_user_path %></h3>
+<br>
+<%= form_tag user_path(@user.id), method: "delete" do %>
+  <%= submit_tag "Delete #{@user.full_name}" %>
+<% end %>
+</div>
+

@@ -4,14 +4,17 @@ class User < ApplicationRecord
     
     validates :username, uniqueness: true
     validates :email, uniqueness: true
+
+   
+
     #validates :password, uniqueness: true
 
     has_secure_password
+
     
     def full_name
         full_name = self.first_name + " " + self.last_name
     end 
-
     def my_recipes
         self.recipes 
     end
