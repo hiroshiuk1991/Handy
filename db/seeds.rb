@@ -1,12 +1,12 @@
 require 'faker'
 
 
-50.times do User.create(
+10.times do User.create(
     username:Faker::TvShows::DrWho.character,
     first_name:Faker::Name.first_name,
     last_name:Faker::Name.last_name,
     email:Faker::Internet.email,
-    password:Faker::Internet.password(min_length: 10, max_length: 20, mix_case: true)
+    password:"$2a$10$FiW.nO0tVKmAVWKUf7i4besPicw7FEBLcC7bMrhYiWnePekcvVvpm"
 )
 end 
 puts 'Users created'
@@ -26,7 +26,7 @@ Recipe.create(
 end 
 puts 'Recipes created'
 
-250.times do Ingredient.create(
+50.times do Ingredient.create(
     ingredient_name:Faker::Food.ingredient
 )
 end 
