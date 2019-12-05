@@ -1,9 +1,31 @@
-<h1> All User </h1>
-<ul>
-  <% @user.each do |user| %>
-    <li>
-      <%= link_to user.username, user %>
-    </li>
-    <br>
+<h1 class="text-center" style="margin-top: 25px; margin-bottom: 35px;"> H'Andy Cooks!</h1>
+
+<div class="container">
+ 
+    <div class="d-flex flex-wrap justify-content-around ">
+    <% @user.each do |user| %>
+      <div class="card" style="width: 18rem; margin-bottom: 15px;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <h5><%= link_to user.username, user %></h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+         <% if user.recipes.empty? %>
+         <p class="text-center">  Sorry no recipe. </p>
+            <% else %>
+          <% user.recipes.each do |r| %>
+          <li class="list-group-item" ><%= link_to r.dish_name, r %></li>
+            <% end %>
+          <% end %>
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
   <% end %>
-</ul>
+    </div>
+  
+</div>

@@ -1,5 +1,7 @@
-<h2><%= @recipes.each do |i| %></h2>
-<p><%= i. %></p>
- 
-
- <% end  %>
+<ul>
+<% @recipe.lists.each do |a| %>
+<li><%= a.ingredient.ingredient_name %></li>
+<% end %>
+</ul>
+<p><%= @recipe.description %></p>
+<p><%= @recipe.instructions %></p>
