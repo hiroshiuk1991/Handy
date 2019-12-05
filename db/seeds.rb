@@ -8,18 +8,12 @@ User.create(username: 'Ms.smith', first_name: "Delia", last_name: "smith", email
 User.create(username: 'HollywoodLife', first_name: "Paul", last_name: "Hollywood", email: "Pholly@yahoo.co.uk", password: "password123", password_confirmation: "password123")
 User.create(username: 'LadyB', first_name: "Mary", last_name: "Berry", email: "maryberry@yahoo.co.uk", password: "password123", password_confirmation: "password123")
 
+
 puts 'Users created'
 
 
 
-# 50.times do User.create(
-#     username:Faker::TvShows::DrWho.character,
-#     first_name:Faker::Name.first_name,
-#     last_name:Faker::Name.last_name,
-#     email:Faker::Internet.email,
-#     password:Faker::Internet.password(min_length: 10, max_length: 20, mix_case: true)
-# )
-# end 
+
 
 Recipe.create(dish_name: "Carbonara", user: User.all.sample, description: "A Italian dish, with bechamel sauce, panchetta and spaghetti.", instructions: "cook spaghetti, fry panchetta, make bechamel sauce, mix all together..enjoy")
 Recipe.create(dish_name: "Dim Sum", user: User.all.sample, description: "An East Asian classic, tightly packed with strong flavours.", instructions: "create Dim sum pastry, add prawns and steam for 10 minutes.")
@@ -37,19 +31,6 @@ Recipe.create(dish_name: "Mince pies", user: User.all.sample, description: "Trad
 
 puts 'Recipes created'
 
-# 10.times do 
-#     food = Faker::Food.dish
-#     user = User.all.sample
-#     desc = Faker::Food.description
-
-
-# Recipe.create(
-#     dish_name: food, 
-#     user: user,
-#     description: desc 
-# )
-
-# end 
 
 50.times do Ingredient.create(
     ingredient_name:Faker::Food.ingredient
