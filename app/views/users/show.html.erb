@@ -1,8 +1,21 @@
-<h3><%= @user.full_name %></h3>
+<h2> Welcome <%= @user.full_name %> </h2>
 <br>
+
+<% if @user.my_recipes.empty? %>
+<p> Please Create a Recipe. <%= link_to "Create New Recipe", new_recipe_path %>
+<% else %>
+<h3><%= link_to "My Recipes", recipe_path %></h3>
+<ul>
+        <% @user.my_recipes.each do |n| %> 
+    <li>
+        <h2><%= link_to n.dish_name, recipe_path %></h2>
+</li>
+    <br>
+  <% end %>
+</ul>
+<% end %>
+
 <br>
-<h3><%= link_to "My Recipes", recipe_path %><h3>
-<br>
-<h3><%= link_to "Got a New Recipe? Lets Add it!" %><h3>
+<h3><%= link_to "Got a New Recipe? Lets Add it!", new_recipe_path %><h3>
 
 

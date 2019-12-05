@@ -14,11 +14,13 @@ puts 'Users created'
 10.times do 
     food = Faker::Food.dish
     user = User.all.sample
+    desc = Faker::Food.description
 
 
 Recipe.create(
     dish_name: food, 
     user: user,
+    description: desc 
 )
 
 end 
@@ -33,11 +35,14 @@ puts 'All seeded'
 50.times do 
     recep = Recipe.all.sample
     ingred = Ingredient.all.sample
+    famount = Faker::Number.number(digits: 2)
+
 
 
     List.create(
     ingredient: ingred, 
     recipe: recep,
+    amount: famount.to_s
 )
 
 end 

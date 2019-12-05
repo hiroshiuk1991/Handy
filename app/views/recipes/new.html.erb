@@ -1,17 +1,19 @@
-<h1>Lets Create a Recipe!</h1>
+<h1>Create a Recipe!</h1>
 
-<%= form_for @recipe do |r| %>
+<%= form_for [@recipe] do |f| %>
+      <%= f.label "Name" %>
+      <%= f.text_field :dish_name %>
+      <%= f.label "Description" %>
+      <%= f.text_area :description %>
+      <% f.label "Ingredients" %>
+      <%= f.fields_for :lists do |i| %>
+        <%= i.label :amount %>
+        <%= i.text_field :amount %>
+      <% end %>
+      <%= f.label "Instructions" %>
+      <%= f.text_area :instructions %>
+      <%= f.submit %>
 
-  <%= r.label :dish_name %><br>
-  <%= r.text_field :dish_name %>
-<br>
+  <% end %>
 
-<%= collection_select(:ingredient, :ingredient_id, Ingredient.all, :id, :prompt => "Select an ingredient?") %> 
-
-<br>
-
-   <%= u.submit %> 
-
-<% end %> 
-
-
+  

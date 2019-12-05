@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :ingredient 
   resources :recipes, only: [:new, :show, :new, :create]
 
+  get '/search' => 'recipes#search', :as => 'search_recipe'
+
 end
