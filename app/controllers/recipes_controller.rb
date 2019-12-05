@@ -1,12 +1,18 @@
 class RecipesController < ApplicationController
+    before_action :require_login
+    skip_before_action :require_login, only: [:index, :show]
 
+    def index
+        @recipes = Recipe.all 
+    end
 
     def show
-       @recipe = Recipe.find(params[:id])
+        @recipe = Recipe.find(params[:id])
+        @ingr = @recipe.dish_ingredients.split(',')
     end 
 
     def new
-            @recipe = Recipe.new
+        @recipe = Recipe.new
     end 
 
     def create
@@ -19,17 +25,34 @@ class RecipesController < ApplicationController
 		end 
     end 
 
+    def edit
+        @recipe = Recipe.find(params[:id]) 
+    end 
 
-private 
+    def update
+        @recipe = Recipe.find(params[:id])
 
-def recipe_params
-    params.require(:recipe).permit(:dish_name, :user_id, :description, :instructions)
-end 
+        if @recipe.update(recipe_params)
+            redirect_to recipe_path(@recipe), notice: "Changes saved"
+        else 
+            render 'edit'
+        end
+    end 
+
+    def destroy
+        Recipe.find(params[:id]).destroy
+        redirect_to recipes_path #should redirect to login page 
+    end 
 
 
+    private 
 
+    def recipe_params
+        params.require(:recipe).permit(:dish_name, :user_id, :description, :instructions, :dish_ingredients)
+    end 
 
-
-
+    def require_login 
+        return head(:forbidden) unless session.include? :user_id 
+    end
 
 end

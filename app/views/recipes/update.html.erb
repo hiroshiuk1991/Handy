@@ -1,0 +1,15 @@
+<h1>Update your Recipe!</h1>
+<%= form_for [@recipe] do |f| %>
+  <%= f.label "Name" %>
+  <%= f.text_field :dish_name %><br>
+  <%= f.label "Description" %>
+  <%= f.text_area :description %><br>
+  <% f.label "Ingredients" %>
+  <%= f.fields_for :lists do |i| %>
+    <%= i.label :amount %>
+    <%= i.text_field :amount %><br>
+  <% end %>
+  <%= f.label "Instructions" %>
+  <%= f.text_area :instructions %><br>
+  <%= f.submit %>
+<% end %>

@@ -1,7 +1,13 @@
-<ul>
-<% @recipe.lists.each do |a| %>
-<li><%= a.ingredient.ingredient_name %></li>
-<% end %>
-</ul>
+
+<h3><%= @recipe.dish_name %><br>
+  <ul>
+    <% @ingr.each do |i| %>
+      <li><%= i %>
+      <% end %></ul>
+    <%= form_tag recipe_path(@recipe.id), method: "delete" do %>
+      <%= submit_tag "Delete #{@recipe.dish_name}" %>
+    <% end %>
+
 <p><%= @recipe.description %></p>
 <p><%= @recipe.instructions %></p>
+
