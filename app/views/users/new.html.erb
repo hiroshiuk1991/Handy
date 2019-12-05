@@ -1,33 +1,21 @@
 <h1> Create a Cook!!</h1>
-
 <%= form_for @user do |u| %>
-
   <%= u.label :first_name %>
   <%= u.text_field :first_name %>
-<br>
-<br>
-<br>
+  <br>
   <%= u.label :last_name %>
   <%= u.text_field :last_name %>
-<br>
-<br>
-<br>
+  <br>
   <%= u.label :username %>
-  <%= u.text_field :username %> 
-<br>
-<br>
-<br>
+  <%= u.text_field :username %>
+  <br>
   <%= u.label :email %>
-  <%= u.text_field :email %> 
-<br>
-<br>
-<br>
+  <%= u.text_field :email %>
+  <br>
   <%= u.label :password %>
-  <%= u.text_field :password %> 
-<br>
-<br>
-   <%= u.submit %> 
-
-<% end %> 
-
-
+  <%= u.password_field :password %>
+  <br>
+  <%= u.label "Confirm Password" %>
+  <%= u.password_field :password_confirmation %>
+  <%= u.submit %>
+<% end %>
