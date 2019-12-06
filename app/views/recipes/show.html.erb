@@ -33,15 +33,14 @@
   </div>
 </nav>
 
-
- <div class="nav-link">
-
+ <div class="nav-link" >
 <h3><%= @recipe.dish_name %><br>
   <ul>
     <% @ingr.each do |i| %>
       <li><%= i %>
       <% end %></ul>
-    <br>
+
+    <img src=<%= @recipe.img_url %>  alt="Lights" style="width:10%">
     <br>
     <% if current_user && @recipe.user == current_user %>
       <%= form_tag recipe_path(@recipe.id), method: "delete" do %>
@@ -52,5 +51,4 @@
 </div>
 <p><%= @recipe.description %></p>
 <p><%= @recipe.instructions %></p>
-
 
