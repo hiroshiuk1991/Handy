@@ -5,9 +5,20 @@ class SessionsController < ApplicationController
 
     def create
         @user = User.find_by(username: params[:user][:username])
-        return head(:forbidden) unless @user.authenticate(params[:user][:password])
-        session[:user_id] = @user.id 
-        redirect_to user_path(@user)
+
+        #return render :new unless @user 
+
+        if @user == nil or @user == "" 
+            flash[:no_user] = "No user found with those details"
+            render :new
+        else 
+            return render :new unless @user.authenticate(params[:user][:password])
+            session[:user_id] = @user.id 
+            redirect_to user_path(@user)
+        end
+        # return head(:forbidden) unless @user.authenticate(params[:user][:password])
+        # session[:user_id] = @user.id 
+        # redirect_to user_path(@user)
     end 
 
     def destroy
