@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
     before_action :require_login, only: [:edit, :update, :destroy]
+    before_action :current_user
 
     def index
         @recipes = Recipe.all 

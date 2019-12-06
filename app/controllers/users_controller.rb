@@ -1,14 +1,14 @@
 class UsersController < ApplicationController
-
-    before_action :require_login, only: [:edit, :update, :destroy]
+    before_action :current_user
+    before_action :require_login, only: [ :edit, :update, :destroy]
 
 
     def index
-        @user = User.all 
+        @users = User.all 
     end 
 
     def show 
-        @user = User.all.find(params[:id])
+        @user_selected = User.all.find(params[:id])
     end 
 
     def new
