@@ -33,19 +33,19 @@
   </div>
 </nav>
 <div class="jumbotron text-center">
-  <h2> Welcome <%= @user.full_name %> </h2>
+  <h2> Welcome <%= @user_selected.full_name %> </h2>
   <br>
   <div class="container text-center">
     <br>
     <h3><%= link_to "My Recipes", recipes_path %></h3>
     <br>
-    <% if current_user && @user == current_user %>
+    <% if current_user && @user_selected == current_user %>
       <h3><%= link_to "Got a New Recipe? Lets Add it!", new_recipe_path %></h3>
       <br>
       <h3><%= link_to "Edit Profile", edit_user_path %></h3>
       <br>
-      <%= form_tag user_path(@user.id), method: "delete" do %>
-        <%= submit_tag "Delete #{@user.full_name}" %>
+      <%= form_tag user_path(@user_selected.id), method: "delete" do %>
+        <%= submit_tag "Delete #{@user_selected.full_name}" %>
       <% end %>
     <% end %>
   </div>
