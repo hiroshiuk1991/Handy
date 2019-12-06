@@ -3,7 +3,6 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
@@ -34,9 +33,13 @@
   </div>
 </nav>
 
-
 <div class="jumbotron text-center"> 
 <h2> Login </h2><br>
+  <% if flash[:no_user] %>
+  <%= flash[:no_user] %>
+<% end %><br>
+<br>
+
 <%= form_tag sessions_path do %>
   <%= label :user, :username %>
   <%= text_field :user, :username %><br>
