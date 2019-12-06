@@ -3,7 +3,6 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
@@ -33,22 +32,20 @@
     </form>
   </div>
 </nav>
-
-<div class="jumbotron text-center"> 
-<h2> Welcome <%= @user.full_name %> </h2><br>
-
-<div class="container text-center">
-
-
-
-<br>
-<h3><%= link_to "My Recipes", recipe_path %></h3>
-<br>
-<h3><%= link_to "Got a New Recipe? Lets Add it!", new_recipe_path %></h3>
-<br>
-<h3><%= link_to "Edit Profile", edit_user_path %></h3>
-<br>
-<%= form_tag user_path(@user.id), method: "delete" do %>
-  <%= submit_tag "Delete #{@user.full_name}" %>
-<% end %>
-</div>
+<div class="jumbotron text-center">
+  <h2> Welcome <%= @user.full_name %> </h2>
+  <br>
+  <div class="container text-center">
+    <br>
+    <h3><%= link_to "My Recipes", recipes_path %></h3>
+    <br>
+    <% if current_user && @user == current_user %>
+      <h3><%= link_to "Got a New Recipe? Lets Add it!", new_recipe_path %></h3>
+      <br>
+      <h3><%= link_to "Edit Profile", edit_user_path %></h3>
+      <br>
+      <%= form_tag user_path(@user.id), method: "delete" do %>
+        <%= submit_tag "Delete #{@user.full_name}" %>
+      <% end %>
+    <% end %>
+  </div>

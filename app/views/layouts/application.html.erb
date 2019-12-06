@@ -9,7 +9,7 @@
   <body>
     <%= yield %>
     <% if session[:user_id] %>
-      <%= "Logged in as: #{session[:user_id]}" %><br>
+      <%= "Logged in as: #{@user.username}" %><br>
       <%= link_to "Log out", logout_path, method: "delete" %>
     <% else %>
       <%= "Please log in." %>

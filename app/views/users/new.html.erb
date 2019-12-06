@@ -3,7 +3,6 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
@@ -33,38 +32,27 @@
     </form>
   </div>
 </nav>
-
-<div class="jumbotron text-center"> 
-<h2> Create a Cook!! </h2><br>
-
-<form>
-  <div class="form-group">
-
-
-<%= form_for @user do |u| %>
-  <%= u.label :first_name %>
-
-  <%= u.text_field :first_name %><br>
-  
-  <%= u.label :last_name %>
-  <%= u.text_field :last_name %><br>
-
-  <%= u.label :username %>
-  <%= u.text_field :username %> <br>
-
-  <%= u.label :email %>
-  <%= u.text_field :email %> <br>
-
-  <%= u.label :password %>
-  <%= u.text_field :password_digest %> <br>
-
-<div class="checkbox">
-    <label><input type="checkbox"> Remember me</label>
-  </div>
-
-   <%= u.submit %> 
-
-<% end %>
-</div> 
-
-
+<div class="jumbotron text-center">
+  <h2> Create a Cook!! </h2>
+  <br>
+  <form>
+    <div class="form-group">
+      <%= form_for @user do |u| %>
+        <%= u.label :first_name %>
+        <%= u.text_field :first_name %><br>
+        <%= u.label :last_name %>
+        <%= u.text_field :last_name %><br>
+        <%= u.label :username %>
+        <%= u.text_field :username %> <br>
+        <%= u.label :email %>
+        <%= u.text_field :email %> <br>
+        <%= u.label :password %>
+        <%= u.password_field :password %> <br>
+        <%= u.label "Confirm password" %>
+        <%= u.password_field :password_confirmation %> <br>
+        <div class="checkbox">
+          <label><input type="checkbox"> Remember me</label>
+        </div>
+        <%= u.submit %>
+      <% end %>
+    </div>
