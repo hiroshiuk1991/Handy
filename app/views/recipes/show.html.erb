@@ -34,6 +34,7 @@
   </div>
 </nav>
 
+ <div class="nav-link">
 <h3><%= @recipe.dish_name %><br>
   <ul>
     <% @ingr.each do |i| %>
@@ -42,7 +43,7 @@
     <%= form_tag recipe_path(@recipe.id), method: "delete" do %>
       <%= submit_tag "Delete #{@recipe.dish_name}" %>
     <% end %>
-
+</div>
 <p><%= @recipe.description %></p>
 <p><%= @recipe.instructions %></p>
 
