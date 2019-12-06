@@ -8,7 +8,6 @@
       <li class="nav-item active">
         <a class="nav-link" href="http://localhost:3000/recipes"> Recipes <span class="sr-only">(current)</span></a>
       </li>
-      
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           More Info
@@ -23,38 +22,41 @@
       <li class="nav-item">
         <a class="nav-link" href="http://localhost:3000/login"> Login/sign up</a>
       </li>
-     <li class="nav-item">
+      <li class="nav-item">
         <%= link_to 'Back', :back, class: "nav-link" %>
-    </ul>    
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search Chef's/Recipes</button>
-    </form>
-  </div>
-</nav>
-
-<div class="jumbotron text-center">
-  <h2> Create a Cook!! </h2>
-  <br>
-  <form>
-    <div class="form-group">
-      <%= form_for @user do |u| %>
-        <%= u.label :first_name %>
-        <%= u.text_field :first_name %><br>
-        <%= u.label :last_name %>
-        <%= u.text_field :last_name %><br>
-        <%= u.label :username %>
-        <%= u.text_field :username %> <br>
-        <%= u.label :email %>
-        <%= u.text_field :email %> <br>
-        <%= u.label :password %>
-        <%= u.password_field :password %> <br>
-        <%= u.label "Confirm password" %>
-        <%= u.password_field :password_confirmation %> <br>
-        <div class="checkbox">
-          <label><input type="checkbox"> Remember me</label>
-        </div>
-        <%= u.submit %>
-      <% end %>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search Chef's/Recipes</button>
+      </form>
     </div>
-
+  </nav>
+  <div class="jumbotron text-center">
+    <h2> Create a Cook!! </h2>
+    <br>
+    <form>
+      <div class="form-group">
+        <%= form_for @user do |u| %>
+          <%= u.label :first_name %>
+          <%= u.text_field :first_name %><br>
+          <%= u.label :last_name %>
+          <%= u.text_field :last_name %><br>
+          <%= u.label :username %>
+          <%= u.text_field :username %> <br>
+          <%= u.label "Short Bio" %>
+          <%= u.text_area :self_description %> <br>
+          <%= u.label :email %>
+          <%= u.text_field :email %> <br>
+          <%= u.label "Image URL" %>
+          <%= u.text_field :img_url %> <br>
+          <%= u.label :password %>
+          <%= u.password_field :password %> <br>
+          <%= u.label :password_confirmation %>
+          <%= u.password_field :password_confirmation %> <br>
+          <div class="checkbox">
+            <label><input type="checkbox"> Remember me</label>
+          </div>
+          <%= u.submit %>
+        <% end %>
+      </form>
+    </div>
